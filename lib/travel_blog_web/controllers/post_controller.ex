@@ -2,7 +2,7 @@ defmodule TravelBlogWeb.PostController do
   use TravelBlogWeb, :controller
 
   alias TravelBlog.Blog
-  alias TravelBlog.Blog.Post
+  alias TravelBlog.Blog.{Comment, Post}
 
   def index(conn, _params) do
     posts = Blog.list_posts()
@@ -28,7 +28,8 @@ defmodule TravelBlogWeb.PostController do
 
   def show(conn, %{"id" => id}) do
     post = Blog.get_post!(id)
-    render(conn, "show.html", post: post)
+    comment_changeset = Blog.change_comment(%Comment{})
+    render(conn, "show.html", post: post, comment_changeset: comment_changeset)
   end
 
   def edit(conn, %{"id" => id}) do
