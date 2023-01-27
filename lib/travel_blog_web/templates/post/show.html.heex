@@ -13,6 +13,13 @@
   </li>
 
 </ul>
+<h3>Comments</h3>
+<ul>
+<%= for comment <- @post.comments do %>
+<li class="comment"><%= comment.body %></li>
+
+<% end %>
+</ul>
 
 <h3>Add a comment</h3>
 <%= form_for @comment_changeset, Routes.post_comment_path(@conn, :create, @post), fn f -> %>
