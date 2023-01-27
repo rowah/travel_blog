@@ -151,7 +151,7 @@ defmodule TravelBlog.Blog do
   def create_comment(%Post{} = post, attrs \\ %{}) do
 
     post
-    |> Ecto.build_assoc(:comment)
+    |> Ecto.build_assoc(:comments)
     |> Comment.changeset(attrs)
     |> Repo.insert()
   end
