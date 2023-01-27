@@ -5,6 +5,7 @@ defmodule TravelBlog.Blog.Post do
   schema "posts" do
     field :body, :string
     field :title, :string
+    has_many :comments, TravelBlog.Blog.Comment
 
     timestamps()
   end
