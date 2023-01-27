@@ -138,15 +138,20 @@ defmodule TravelBlog.Blog do
 
   ## Examples
 
-      iex> create_comment(%{field: value})
+      iex> create_comment(post, %{field: value})
       {:ok, %Comment{}}
 
-      iex> create_comment(%{field: bad_value})
+      iex> create_comment(post, %{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
+
+      we update the create comments since the comments will be associated with the post; let it accept that particular post
+      then we pipe the post into the Ecto.build_assoc
   """
-  def create_comment(attrs \\ %{}) do
-    %Comment{}
+  def create_comment(%Post{} = post, attrs \\ %{}) do
+
+    post
+    |> Ecto.build_assoc(:comment)
     |> Comment.changeset(attrs)
     |> Repo.insert()
   end
