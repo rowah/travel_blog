@@ -4,7 +4,6 @@ defmodule TravelBlog.Blog.Comment do
 
   schema "comments" do
     field :body, :string
-    # field :post_id, :id
     belongs_to :post, TravelBlog.Blog.Post
 
     timestamps()
@@ -15,5 +14,6 @@ defmodule TravelBlog.Blog.Comment do
     comment
     |> cast(attrs, [:body])
     |> validate_required([:body])
+    |> validate_length(:body, min: 2, max: 250)
   end
 end
