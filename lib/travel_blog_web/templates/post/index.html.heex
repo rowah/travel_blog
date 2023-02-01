@@ -1,4 +1,4 @@
-<h1>Listing Posts</h1>
+<h1>Welcome to the Posts Page</h1>
 
 <table>
   <thead>
@@ -25,4 +25,5 @@
   </tbody>
 </table>
 
-<span><%= link "New Post", to: Routes.post_path(@conn, :new) %></span>
+<span><%= link "New Post", to: Routes.post_path(@conn, :new) %></span> <br/>
+<button><%= link("Home", to: "/") %></button>

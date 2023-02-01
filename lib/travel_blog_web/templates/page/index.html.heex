@@ -1,22 +1,12 @@
 <section class="phx-hero">
   <h1><%= gettext "Welcome to %{name}!", name: "Travel Blog" %></h1>
   <p>Share the eperiences about places you have visited!</p>
-  <img src={Routes.static_path(@conn, "/images/traveler.png")} alt="Travel Blog"/>
+  <img src={Routes.static_path(@conn, "/images/pexels.jpeg")} alt="Travel Blog"/>
 </section>
 
 <section class="row">
   <article class="column">
-    <h2>Popular Posts</h2>
-    <ul>
-      <li>
-        <a href="">Post Title</a>
-      </li>
-      <li>
-        <a href="">Post Title</a>
-      </li>
-      <li>
-        <a href="">Post Title</a>
-      </li>
-    </ul>
+    <button><%= link("View All Posts", to: "/posts") %></button>
+
   </article>
 </section>
