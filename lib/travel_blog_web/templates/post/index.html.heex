@@ -27,6 +27,5 @@
 
 <span><%= link "New Post", to: Routes.post_path(@conn, :new) %></span> <br/>
 <div>
-    <%= link("Back To Homepage", to: "/") %>
     <%= link("Back To Homepage", to: TravelBlogWeb.Router.Helpers.page_path(TravelBlogWeb.Endpoint, :index)) %>
   </div>
