@@ -1,4 +1,5 @@
 defmodule TravelBlogWeb.Router do
+  #makes Phoenix router functions available in our particular router
   use TravelBlogWeb, :router
 
   import TravelBlogWeb.UserAuth
@@ -21,8 +22,11 @@ defmodule TravelBlogWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    resources "/posts", PostController do
-      resources "/comments", CommentController, only: [:create]
+    #a posts resource that has a many-to-one relationship with users
+    # resources "/users" UserController do
+      resources "/posts", PostController do
+        resources "/comments", CommentController, only: [:create]
+      # end
     end
   end
 
